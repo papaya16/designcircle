@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计清源 Circle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Commissioner', sans-serif;
+            background: #f7f5f2;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        .app {
+            width: 100%;
+            max-width: 410px;
+            min-height: 100vh;
+            background: #fff;
+            position: relative;
+        }
+
+        /* Page 1 */
+        .page-search {
+            padding: 60px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .page-search.hidden, .page-result.hidden { display: none; }
+
+        .logo-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 80px;
+            letter-spacing: -0.5px;
+        }
+        .logo-subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            color: #8c8c8c;
+            margin-top: 6px;
+            margin-bottom: 48px;
+        }
+        .search-container {
+            width: 100%;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Commissioner', sans-serif;
+            font-size: 15px;
+            border: 1.5px solid #e0ddd9;
+            border-radius: 12px;
+            background: #faf9f7;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus { border-color: #c4a882; }
+        .search-input::placeholder { color: #b5b0a8; }
+
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0; right: 0;
+            background: #fff;
+            border: 1.5px solid #e0ddd9;
+            border-radius: 12px;
+            max-height: 240px;
+            overflow-y: auto;
+            display: none;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .dropdown.show { display: block; }
+        .dropdown-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-bottom: 1px solid #f0eeeb;
+            transition: background 0.15s;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover, .dropdown-item.active { background: #faf5ef; }
+        .dropdown-item .name-en { font-weight: 500; color: #1a1a1a; }
+        .dropdown-item .name-cn { font-weight: 400; color: #8c8c8c; margin-left: 6px; font-size: 13px; }
+        .dropdown-item .company { font-size: 12px; color: #b5b0a8; margin-top: 2px; }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 16px;
+            padding: 14px;
+            font-family: 'Commissioner', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-submit:hover { opacity: 0.85; }
+        .btn-submit:disabled { background: #d4d0cb; cursor: default; }
+
+        /* Page 2 */
+        .page-result {
+            padding: 24px;
+            min-height: 100vh;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Commissioner', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #8c8c8c;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 0;
+            margin-bottom: 24px;
+        }
+        .back-btn:hover { color: #1a1a1a; }
+
+        .result-header { text-align: center; margin-bottom: 24px; }
+        .result-greeting { font-size: 14px; color: #8c8c8c; margin-bottom: 4px; }
+        .result-name { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+
+        .team-info {
+            text-align: center;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: #faf9f7;
+            border-radius: 16px;
+        }
+        .team-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+        .team-location {
+            font-size: 14px;
+            color: #8c8c8c;
+        }
+        .team-region {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #c4a882;
+            background: #fdf5ea;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        .qr-section { text-align: center; margin: 24px 0; }
+        .qr-section img {
+            width: 280px;
+            height: 280px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+        .qr-label {
+            font-size: 12px;
+            color: #b5b0a8;
+            margin-top: 10px;
+        }
+        .btn-save {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 10px 20px;
+            font-family: 'Commissioner', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-save:hover { opacity: 0.85; }
+        .btn-save svg { width: 16px; height: 16px; }
+
+        .members-section { margin-top: 28px; }
+        .members-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #8c8c8c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .member-card {
+            background: #faf9f7;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .member-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .member-name { font-size: 15px; font-weight: 600; }
+        .member-name-cn { font-size: 13px; color: #8c8c8c; font-weight: 400; }
+        .member-location { font-size: 12px; color: #b5b0a8; flex-shrink: 0; margin-left: 8px; }
+        .member-company { font-size: 13px; font-weight: 500; color: #c4a882; margin-bottom: 8px; }
+        .member-note { font-size: 13px; line-height: 1.6; color: #5c5c5c; }
+        .member-card.is-self {
+            border: 1.5px solid #c4a882;
+            background: #fdf9f3;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Page 1: Search -->
+        <div class="page-search" id="pageSearch">
+            <div class="logo-title">设计清源 Circle</div>
+            <div class="logo-subtitle">查找你的小组</div>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="输入你的名字..." autocomplete="off">
+                <div class="dropdown" id="dropdown"></div>
+            </div>
+            <button class="btn-submit" id="submitBtn" disabled>查看我的小组</button>
+        </div>
+
+        <!-- Page 2: Result -->
+        <div class="page-result hidden" id="pageResult">
+            <button class="back-btn" id="backBtn">&larr; 返回搜索</button>
+            <div class="result-header">
+                <div class="result-greeting">你好,</div>
+                <div class="result-name" id="resultName"></div>
+            </div>
+            <div class="team-info">
+                <div class="team-name" id="teamName"></div>
+                <div class="team-location" id="teamLocation"></div>
+                <div class="team-region" id="teamRegion"></div>
+            </div>
+            <div class="qr-section">
+                <img id="qrImage" src="" alt="Group QR Code">
+                <div class="qr-label">扫码加入小组群聊</div>
+                <button class="btn-save" id="saveBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+                    保存二维码
+                </button>
+            </div>
+            <div class="members-section">
+                <div class="members-title">小组成员</div>
+                <div id="membersList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+    const allMembers = [];
+    for (const [teamKey, team] of Object.entries(teams)) {
+        for (const m of team.members) {
+            allMembers.push({ ...m, teamKey, teamName: team.name, teamLocation: team.location, region: team.region });
+        }
+    }
+
+    let selectedMember = null;
+    const searchInput = document.getElementById('searchInput');
+    const dropdown = document.getElementById('dropdown');
+    const submitBtn = document.getElementById('submitBtn');
+    const pageSearch = document.getElementById('pageSearch');
+    const pageResult = document.getElementById('pageResult');
+    const backBtn = document.getElementById('backBtn');
+    const saveBtn = document.getElementById('saveBtn');
+
+    searchInput.addEventListener('input', function() {
+        const val = this.value.trim().toLowerCase();
+        selectedMember = null;
+        submitBtn.disabled = true;
+        if (val.length < 1) { dropdown.classList.remove('show'); return; }
+
+        const matches = allMembers.filter(m =>
+            m.en.toLowerCase().includes(val) ||
+            m.cn.toLowerCase().includes(val) ||
+            (m.cn && m.cn.includes(this.value.trim()))
+        ).slice(0, 8);
+
+        if (matches.length === 0) { dropdown.classList.remove('show'); return; }
+
+        dropdown.innerHTML = matches.map((m, i) =>
+            `<div class="dropdown-item" data-index="${i}">
+                <div><span class="name-en">${m.en}</span><span class="name-cn">${m.cn || ''}</span></div>
+                <div class="company">${m.company} · ${m.loc}</div>
+            </div>`
+        ).join('');
+        dropdown.classList.add('show');
+
+        dropdown.querySelectorAll('.dropdown-item').forEach((item, i) => {
+            item.addEventListener('click', () => {
+                selectedMember = matches[i];
+                searchInput.value = selectedMember.en + (selectedMember.cn ? ` (${selectedMember.cn})` : '');
+                dropdown.classList.remove('show');
+                submitBtn.disabled = false;
+            });
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) dropdown.classList.remove('show');
+    });
+
+    submitBtn.addEventListener('click', () => {
+        if (!selectedMember) return;
+        showResult(selectedMember);
+    });
+
+    backBtn.addEventListener('click', () => {
+        pageResult.classList.add('hidden');
+        pageSearch.classList.remove('hidden');
+        searchInput.value = '';
+        selectedMember = null;
+        submitBtn.disabled = true;
+    });
+
+    saveBtn.addEventListener('click', () => {
+        const img = document.getElementById('qrImage');
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = `QR_${selectedMember.teamKey}.JPG`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+
+    function showResult(member) {
+        pageSearch.classList.add('hidden');
+        pageResult.classList.remove('hidden');
+
+        document.getElementById('resultName').textContent = member.en + (member.cn ? ` ${member.cn}` : '');
+        document.getElementById('teamName').textContent = member.teamName;
+        document.getElementById('teamLocation').textContent = member.teamLocation;
+        document.getElementById('teamRegion').textContent = member.region;
+        document.getElementById('qrImage').src = `images/${member.teamKey}.JPG`;
+
+        const team = teams[member.teamKey];
+        document.getElementById('membersList').innerHTML = team.members.map(m => {
+            const isSelf = m.en === member.en && m.cn === member.cn;
+            return `<div class="member-card ${isSelf ? 'is-self' : ''}">
+                <div class="member-card-header">
+                    <div>
+                        <div class="member-name">${m.en} ${m.cn ? `<span class="member-name-cn">${m.cn}</span>` : ''}</div>
+                    </div>
+                    <div class="member-location">${m.loc}</div>
+                </div>
+                <div class="member-company">${m.company}</div>
+                <div class="member-note">${m.note}</div>
+            </div>`;
+        }).join('');
+
+        window.scrollTo(0, 0);
+    }
+    </script>
+</body>
+</html>
