@@ -43,7 +43,6 @@ const teams = {
     { en: "Manni Li", cn: "李曼妮", loc: "Belmont, CA", company: "Meta - PD", note: "研究生UI/UX专业, 之前在Meta和Global Payments, 专注于B2B领域和enterprise产品设计。希望探讨Career growth和练习面试" },
     { en: "Vicky Gao", cn: "", loc: "San Mateo, CA", company: "DoorDash - PD", note: "在DoorDash做product designer。希望一起交流设计以及产品相关的信息" },
     { en: "Roy", cn: "罗伊", loc: "San Mateo, CA", company: "eBay - PD", note: "建筑背景，19年开始工作。沟通合作能力" },
-    { en: "Becca Guo", cn: "郭梦佳", loc: "Burlingame, CA", company: "Bellota - PD", note: "UMN CS / Cornell IS，Gaming Startup的Principal PD。Vibe Coding/Designing, Leadership的提升" },
   ]},
   "F": { name: "Team F 小满 Growth", location: "Fremont, CA", region: "东湾 Fremont", members: [
     { en: "Emma Wang", cn: "", loc: "Fremont, CA", company: "UX (Gaming)", note: "UX Designer in Gaming, 前EA, 网易。认识设计行业小伙伴，探讨职业发展，交流tech公司面试流程和技巧" },
