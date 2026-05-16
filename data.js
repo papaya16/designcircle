@@ -24,10 +24,10 @@ const teams = {
   "D": { name: "Team D 春分 Trends", location: "San Mateo / Burlingame, CA", region: "半岛 Peninsula", members: [
     { en: "Yiqi Zhao", cn: "", loc: "San Mateo, CA", company: "Meta - PD", note: "AI, Spatial Intelligence, World Model, ex-Unity, ex-Bungie. Harvard/MIT - HCI, Brain Computer Interface, ARVR. 研究AI自动赚钱，辞职退休" },
     { en: "Ruo Cheng", cn: "", loc: "San Mateo, CA", company: "AWS - UX", note: "做过healthcare research/design, 目前是AWS UX designer。结交设计师朋友，了解行业趋势" },
-    { en: "Beverly", cn: "", loc: "San Mateo, CA", company: "Arctera", note: "UMich HCI毕业，现在在做data protection软件。聊设计 交朋友 副业等" },
     { en: "Hanyu Gong", cn: "", loc: "San Mateo, CA", company: "Asana - PD", note: "之前在Google, SimpliSafe工作。Georgia Tech - HCI, 浙大广告+工设。交流未来design in tech会怎么变化" },
     { en: "Siyu Lei", cn: "", loc: "San Mateo, CA", company: "Zaiye - PD", note: "本科浙大产品设计，MA Royal College of Art。之前在NIO做HMI Experience Manager。刚来美国想多认识不同领域的设计师" },
     { en: "Becca Guo", cn: "郭梦佳", loc: "Burlingame, CA", company: "Bellota - PD", note: "UMN CS / Cornell IS，曾在Glu，网易游戏，Jam City做UX/UI，现为Gaming Startup的Principal PD。Vibe Coding/Designing, 了解Tech行业对UX/PD的考察维度" },
+    { en: "Heng Zhang", cn: "章恒", loc: "San Mateo, CA", company: "Meta - PD", note: "Went to Asana and Twitter (x.com) before Meta. 背景是建筑+景观。期待交流career path和communication & collaboration方面的话题，产品设计跨学科的也很感兴趣" },
   ]},
   "E": { name: "Team E 谷雨 Growth", location: "San Mateo, CA", region: "半岛 Peninsula", members: [
     { en: "Aoni Wang", cn: "王奥妮", loc: "San Mateo, CA", company: "Instagram - PD", note: "目前在Instagram做product design。之前在Chime和MailTime工作，设计经验主要是从0到1的to C移动端产品设计。如何用AI赋能，和领导层的合作与展示" },
@@ -107,6 +107,7 @@ const teams = {
     { en: "Pinxuan Lin", cn: "", loc: "Los Angeles, CA", company: "MoeGo - PD", note: "Marketing and Communication Research硕士，转行成为product designer。主要在Startup。product designer面试技巧，了解最新UI/UX行业趋势" },
     { en: "Roy Ren", cn: "", loc: "Los Angeles, CA", company: "Meta - PD", note: "ACCD产品毕业，现在Meta广告组做PD。认识更多设计师，讨论设计career" },
     { en: "Yiqi Wang", cn: "凯利", loc: "Los Angeles, CA", company: "Autodesk - PD", note: "CMU MHCI 2022, 毕业后在Autodesk，现居尔湾。2026年的挑战是找新工作，找到自己在新时代的定位。vibe-coding让设计师可以hands on做很多东西" },
+    { en: "Beverly", cn: "", loc: "San Mateo, CA", company: "Arctera", note: "UMich HCI毕业，现在在做data protection软件。聊设计 交朋友 副业等" },
   ]},
   "O": { name: "Team O 寒露 AI", location: "Bellevue / Seattle, WA", region: "Great Seattle Area", members: [
     { en: "Evelyn Zhou", cn: "", loc: "Bellevue, WA", company: "Meta - PD", note: "Supply Chain, Monitor Intelligence, Ads, Design System。认识更多朋友，vibe coding，AI时代的行业发展，career development" },
