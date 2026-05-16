@@ -170,6 +170,7 @@ const teams = {
     { en: "Weiwei Zhang", cn: "张唯玮", loc: "Boston, MA", company: "HubSpot - PD", note: "目前在HubSpot data platform做设计，之前在Twilio Segment和Wise Systems。计算机+艺术设计+交互设计背景。跨组合作，AI赋能，向上沟通管理" },
     { en: "Jessica Yuan", cn: "", loc: "Washington DC", company: "ScenEQ - PD", note: "本科MICA Graphic Design and Interactive Arts, 研究生UMD HCI。在FINRA做了六年PD，B2B & enterprise products。有两年科技创业经历" },
     { en: "Jasmine Guo", cn: "", loc: "Toronto, Canada", company: "Enable - PD", note: "Senior Product Designer, B2B SaaS。康奈尔info sci本科和研究生。想向其他设计师学习，交流职业发展；Design System best practices" },
+    { en: "Kath Liu", cn: "刘臻", loc: "Toronto, Canada", company: "Meta - PD", note: "目前在Meta Reality Labs focus on AI creation tools design。进群主要是想了解更多的职业发展的可能性，现在有点瓶颈" },
   ]},
   "W": { name: "Team W 既白 Growth", location: "Indiana / Miami / NC / Detroit", region: "ET / Other", members: [
     { en: "Yangyi Xu", cn: "", loc: "Indiana", company: "Weights & Biases - PD", note: "本科浙大建筑，研究生GaTech HCI，曾在阿里云实习。Career development; 了解不同industry设计师的process和挑战" },
