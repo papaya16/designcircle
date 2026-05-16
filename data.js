@@ -20,7 +20,6 @@ const teams = {
     { en: "Yuyin Sun", cn: "", loc: "San Francisco, CA", company: "Reacher - PD", note: "TikTok Affiliate AI Startup。了解现在Design发展趋势，向有经验的人学习" },
     { en: "Beatrice", cn: "", loc: "San Francisco, CA", company: "OF - PD", note: "B2B Enterprise。希望深耕fintech产品" },
     { en: "Yun Tang", cn: "", loc: "San Francisco, CA", company: "Medidata - PD", note: "CMU and Healthtech。各种设计方面的实操经验和技巧" },
-    { en: "Becca Guo", cn: "郭梦佳", loc: "Burlingame, CA", company: "Bellota - PD", note: "UMN CS / Cornell IS，曾在Glu，网易游戏，Jam City做UX/UI，现为Gaming Startup的Principal PD。Vibe Coding/Designing, 了解Tech行业对UX/PD的考察维度" },
   ]},
   "D": { name: "Team D 春分 Trends", location: "San Mateo, CA", region: "半岛 Peninsula", members: [
     { en: "Yiqi Zhao", cn: "", loc: "San Mateo, CA", company: "Meta - PD", note: "AI, Spatial Intelligence, World Model, ex-Unity, ex-Bungie. Harvard/MIT - HCI, Brain Computer Interface, ARVR. 研究AI自动赚钱，辞职退休" },
@@ -29,6 +28,7 @@ const teams = {
     { en: "Ruo Cheng", cn: "", loc: "San Mateo, CA", company: "AWS - UX", note: "做过healthcare research/design, 目前是AWS UX designer。结交设计师朋友，了解行业趋势" },
     { en: "Grace Guo", cn: "郭艾琛", loc: "San Mateo, CA", company: "Workday - PD", note: "UC Berkeley本科 & Pratt研究生。探讨工作中的问题，了解AI在设计过程中的应用和AI design principles" },
     { en: "Beverly", cn: "", loc: "San Mateo, CA", company: "Arctera", note: "UMich HCI毕业，现在在做data protection软件。聊设计 交朋友 副业等" },
+    { en: "Becca Guo", cn: "郭梦佳", loc: "Burlingame, CA", company: "Bellota - PD", note: "UMN CS / Cornell IS，曾在Glu，网易游戏，Jam City做UX/UI，现为Gaming Startup的Principal PD。Vibe Coding/Designing, 了解Tech行业对UX/PD的考察维度" },
   ]},
   "E": { name: "Team E 谷雨 Growth", location: "San Mateo, CA", region: "半岛 Peninsula", members: [
     { en: "Yiwei Xu", cn: "", loc: "San Mateo, CA", company: "Airwallex - PD", note: "现在在Airwallex做AI Native product, 之前在C3.ai当Design Manager。UMSI毕业。职业发展，了解行业动向(B2B/AI)" },
