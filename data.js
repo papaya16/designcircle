@@ -107,7 +107,7 @@ const teams = {
     { en: "Pinxuan Lin", cn: "", loc: "Los Angeles, CA", company: "MoeGo - PD", note: "Marketing and Communication Research硕士，转行成为product designer。主要在Startup。product designer面试技巧，了解最新UI/UX行业趋势" },
     { en: "Roy Ren", cn: "", loc: "Los Angeles, CA", company: "Meta - PD", note: "ACCD产品毕业，现在Meta广告组做PD。认识更多设计师，讨论设计career" },
     { en: "Yiqi Wang", cn: "凯利", loc: "Los Angeles, CA", company: "Autodesk - PD", note: "CMU MHCI 2022, 毕业后在Autodesk，现居尔湾。2026年的挑战是找新工作，找到自己在新时代的定位。vibe-coding让设计师可以hands on做很多东西" },
-    { en: "Beverly", cn: "", loc: "San Mateo, CA", company: "Arctera", note: "UMich HCI毕业，现在在做data protection软件。聊设计 交朋友 副业等" },
+    { en: "Beverly", cn: "", loc: "Los Angeles, CA", company: "Arctera", note: "UMich HCI毕业，现在在做data protection软件。聊设计 交朋友 副业等" },
   ]},
   "O": { name: "Team O 寒露 AI", location: "Bellevue / Seattle, WA", region: "Great Seattle Area", members: [
     { en: "Evelyn Zhou", cn: "", loc: "Bellevue, WA", company: "Meta - PD", note: "Supply Chain, Monitor Intelligence, Ads, Design System。认识更多朋友，vibe coding，AI时代的行业发展，career development" },
